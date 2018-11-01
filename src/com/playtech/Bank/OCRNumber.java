@@ -1,6 +1,8 @@
 package com.playtech.Bank;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class OCRNumber {
 
@@ -9,9 +11,19 @@ public class OCRNumber {
     private boolean illegal = false;
 
 
-    public OCRNumber(List<OCRDigit> number ) {
+    public OCRNumber(List<String> lines ) {
 
-        this.number = number;
+        String[] a = new String [3];
+        for (int i = 0; i < 9; i++) {
+            number.add(new OCRDigit(lines.stream()
+                    .limit(3*i+3)
+                    .skip(3*i)
+                    .collect(Collectors.toList())));
+        }
+
+
+
+
     }
 
     public boolean isInvalid() {

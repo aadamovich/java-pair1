@@ -1,14 +1,16 @@
 package com.playtech.Bank;
 
+import java.util.List;
+
 public class OCRDigit {
 
-    private String [][] ocrN= new String [3][4];
+    private List<String> OcrDigit;
 
-    public OCRDigit(String[][] ocrN) {
-        this.ocrN = ocrN;
+    public OCRDigit(List<String> ocrDigit) {
+        OcrDigit = ocrDigit;
     }
 
-    public String[][] getOcrN() {
-        return ocrN;
+    public List<String> getOcrDigit() {
+        return OcrDigit;
     }
 }
