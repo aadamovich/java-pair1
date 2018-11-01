@@ -18,6 +18,10 @@ public class Point {
         return y;
     }
 
+    public double distance(Point b) {
+        return Math.sqrt(Math.pow(x - b.x, 2) + Math.pow(y - b.y, 2));
+    }
+
     @Override
     public String toString() {
         return "Point{" +

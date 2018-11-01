@@ -15,15 +15,30 @@ public class Main {
 
         points.add(new Point(12L, 14L));
         points.add(new Point(3L, 7L));
-        points.add(new Point(15L, 4L));
-        points.add(new Point(5L, 9L));
+        points.add(new Point(4L, 4L));
+        points.add(new Point(3L, 3L));
         points.add(new Point(5L, 5L));
         points.add(new Point(12L, 12L));
 
-        Rectangle rectangle = new Rectangle(new Point(2L, 2L), new Point(2L, 4L), new Point(5L, 2L), new Point(5L, 4L));
+        OurRectangle rectangle = new OurRectangle(new Point(2L, 2L), new Point(2L, 4L), new Point(5L, 2L), new Point(5L, 4L));
 
+
+        System.out.println("Rectangle");
         //List<Point> inRectagle = (List<Point>)
-        points.stream().filter(p -> p.getX() > rectangle.getLeftBottom().getX()).filter(p -> p.getX() < rectangle.getLeftUpper().getX()).forEach(System.out::println);
+        points.stream()
+                .filter(p -> p.getX() > rectangle.getLeftBottom().getX())
+                .filter(p -> p.getX() < rectangle.getRightUpper().getX())
+                .filter(p -> p.getY() > rectangle.getLeftBottom().getY())
+                .filter(p -> p.getY() < rectangle.getRightUpper().getY())
+                .forEach(System.out::println);
+
+
+        OurCircle circle = new OurCircle(new Point(4L,4L), 5);
+
+        System.out.println("Circle");
+        points.stream()
+                .filter(p -> circle.getRadius()>p.distance(circle.getCenter()))
+                .forEach(System.out::println);
 
 
     }

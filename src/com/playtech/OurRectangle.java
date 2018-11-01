@@ -3,14 +3,14 @@ package com.playtech;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Rectangle {
+public class OurRectangle {
 
     private Point leftBottom;
     private Point leftUpper;
     private Point rightBottom;
     private Point rightUpper;
 
-    public Rectangle(Point leftBottom, Point leftUpper, Point rightBottom, Point rightUpper) {
+    public OurRectangle(Point leftBottom, Point leftUpper, Point rightBottom, Point rightUpper) {
         this.leftBottom = leftBottom;
         this.leftUpper = leftUpper;
         this.rightBottom = rightBottom;
