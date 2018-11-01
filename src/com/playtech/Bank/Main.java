@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
+
+    private static List<OCRNumber> OCRNumbers = new ArrayList<OCRNumber>();
+
     public static void main(String[] args) {
 
         //TODO Matrix for numbrs
@@ -18,16 +21,17 @@ public class Main {
         List<String> lines = new ArrayList<>();
         int linecounter = 0;
         List<String> tempOCRNumberLines = new ArrayList<String>();
-        List<OCRNumber> OCRNumbers = new ArrayList<OCRNumber>();
+
 
         try {
-            lines = Files.lines(Paths.get("input.txt")).collect(Collectors.toList());
+            lines = Files.lines(Paths.get("java-pair1/input.txt")).collect(Collectors.toList());
         } catch (Exception e) {
             System.out.println(e);
         }
 
         for (String line : lines) {
             linecounter++;
+            //System.out.println("Test " + line);
             tempOCRNumberLines.add(line);
 
             if (linecounter % 4 == 0) {
@@ -35,8 +39,11 @@ public class Main {
                 OCRNumbers.add(ocr);
                 linecounter = 0;
                 tempOCRNumberLines.clear();
+                //System.out.println(ocr.toString());
             }
         }
+
+        System.out.println(OCRNumbers.toString());
     }
 
 

@@ -1,25 +1,34 @@
 package com.playtech.Bank;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class OCRNumber {
 
-    private List<OCRDigit> number;
+    private List<OCRDigit> number = new ArrayList<OCRDigit>();
     private boolean invalid = false;
     private boolean illegal = false;
-    private int translated ;
+    private int translated;
 
 
     public OCRNumber(List<String> lines) {
-
-        String[] a = new String[3];
-        for (int i = 0; i < 9; i++) {
-            number.add(new OCRDigit(lines.stream()
-                    .limit(3 * i + 3)
-                    .skip(3 * i)
-                    .collect(Collectors.toList())));
+        StringBuilder translation = new StringBuilder();
+        for (int k = 0; k < 9; k++) {
+            int j = 0;
+            List<String> temp = new ArrayList<>();
+            for (String line :
+                    lines) {
+                //System.out.println( "<<" + line.substring(k*3,k*3+3) + ">>");
+                temp.add(line.substring(k * 3, k * 3 + 3));
+                j++;
+            }
+            OCRDigit tempDigit = new OCRDigit(temp);
+            number.add(tempDigit);
+            //System.out.println("Tõlgib numbri" + TranslateDigit.translateDigit(temp));
+            translation.append(TranslateDigit.translateDigit(temp));
         }
+        translated = Integer.parseInt(translation.toString());
+        //System.out.println("Peaks olema 123456789 -> " + translated);
     }
 
 
@@ -46,7 +55,10 @@ public class OCRNumber {
     @Override
     public String toString() {
         return "OCRNumber{" +
-                "number=" + number +
-                '}';
+                //"number=" + number +
+                ", invalid=" + invalid +
+                ", illegal=" + illegal +
+                ", translated=" + translated +
+                "}\n";
     }
 }
