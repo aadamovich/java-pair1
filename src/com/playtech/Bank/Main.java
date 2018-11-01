@@ -32,7 +32,7 @@ public class Main {
 
             if (linecounter % 4 == 0) {
                 OCRNumber ocr = new OCRNumber(tempOCRNumberLines);
-                OCRNumbers.add(OCRNumber);
+                OCRNumbers.add(ocr);
                 linecounter = 0;
                 tempOCRNumberLines.clear();
             }
