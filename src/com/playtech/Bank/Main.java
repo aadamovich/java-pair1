@@ -16,6 +16,9 @@ public class Main {
         //TODO Write to file
 
         List<String> lines = new ArrayList<>();
+        int linecounter = 0;
+        List<String> tempOCRNumberLines = new ArrayList<String>();
+        List<OCRNumber> OCRNumbers = new ArrayList<OCRNumber>();
 
         try {
             lines = Files.lines(Paths.get("input.txt")).collect(Collectors.toList());
@@ -24,7 +27,15 @@ public class Main {
         }
 
         for (String line : lines) {
-            System.out.println(line);
+            linecounter++;
+            tempOCRNumberLines.add(line);
+
+            if (linecounter % 4 == 0) {
+                OCRNumber ocr = new OCRNumber(tempOCRNumberLines);
+                OCRNumbers.add(OCRNumber);
+                linecounter = 0;
+                tempOCRNumberLines.clear();
+            }
         }
     }
 
