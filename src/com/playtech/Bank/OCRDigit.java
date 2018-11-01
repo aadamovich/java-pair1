@@ -13,4 +13,11 @@ public class OCRDigit {
     public List<String> getOcrDigit() {
         return OcrDigit;
     }
+
+    @Override
+    public String toString() {
+        return "OCRDigit{" +
+                "OcrDigit=" + OcrDigit +
+                '}';
+    }
 }
