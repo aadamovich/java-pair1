@@ -28,7 +28,9 @@ public class Main {
         }
     }
 
-    public static void createHashmap(String line) {
+
+
+    public static void createHashmap(OCRNumber line) {
         System.out.println(line);
     }
 }
