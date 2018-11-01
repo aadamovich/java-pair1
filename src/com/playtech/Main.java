@@ -1,6 +1,7 @@
 package com.playtech;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -38,6 +39,34 @@ public class Main {
         System.out.println("Circle");
         points.stream()
                 .filter(p -> circle.getRadius()>p.distance(circle.getCenter()))
+                .forEach(System.out::println);
+
+
+        System.out.println("Sort by distance");
+
+        Point punkt = new Point(5L,5L);
+
+
+        Comparator<Point> c = (Point a, Point b) ->
+                (int) Math.signum(a.distance(punkt) - b.distance(punkt));
+
+
+        points.sort(c);
+        points.sort((Point a, Point b) ->
+                (int) Math.signum(a.distance(punkt) - b.distance(punkt)));
+
+
+
+        for (Point p :
+                points) {
+            System.out.println(p);
+        }
+
+
+        int limit = 4;
+        System.out.println("Print " + limit + " closest");
+        points.stream()
+                .limit(limit)
                 .forEach(System.out::println);
 
 
