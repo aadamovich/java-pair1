@@ -24,7 +24,7 @@ public class Main {
     //TODO Write to file
 
 
-    List<String> lines = lines(get("java-pair1/input.txt")).collect(toList());
+    List<String> lines = lines(get("input.txt")).collect(toList());
     List<String> tempOCRNumberLines = new ArrayList<>();
     for (int lineIndex = 0; lineIndex < lines.size(); lineIndex++) {
       tempOCRNumberLines.add(lines.get(lineIndex));
