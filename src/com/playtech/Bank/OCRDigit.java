@@ -18,7 +18,7 @@ public class OCRDigit {
 
   @Override
   public String toString() {
-    return digitData
+    return "\n"  + digitData
         .stream()
         .collect(joining("\n"));
   }
